@@ -1,70 +1,45 @@
-from jobs import read
+from src.jobs import read
 
 
-def get_unique_job_types(path: str):
-
-    job_types = []
+def get_unique_job_types(path):
     content = read(path)
-
-    for type in content:
-        if type['job_type'] not in job_types:
-            job_types.append(type['job_type'])
+    job_types = []
+    for index in content:
+        job_type = index["job_type"]
+        if job_type not in job_types:
+            job_types.append(job_type)
 
     return job_types
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
+    filtered_list = []
+    for index in jobs:
+        filtered_job = index["job_type"]
+        if filtered_job == job_type:
+            filtered_list.append(filtered_job)
+    return filtered_list
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
+    content = read(path)
+    industries_list = []
 
-    Must call `read`
+    for index in content:
+        industries = index["industry"]
+        if industries not in industries_list:
+            industries_list.append(industries)
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return []
+    return industries_list
 
 
 def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+    filtered_list = []
+    for index in jobs:
+        filtered_job = index["industry"]
+        if filtered_job == industry:
+            filtered_list.append(filtered_job)
+    return filtered_list
 
 
 def get_max_salary(path):

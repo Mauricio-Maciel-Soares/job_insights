@@ -7,6 +7,6 @@ def read(path):
     jobs_list = []
     with open(path) as file:
         content = csv.DictReader(file, delimiter=",", quotechar='"')
-        for job in content:
-            jobs_list.append(job)
+        for index in content:
+            jobs_list.append(index)
     return jobs_list
