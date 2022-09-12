@@ -1,5 +1,5 @@
 from functools import lru_cache
-from . import jobs #
+from . import jobs
 
 
 @lru_cache
