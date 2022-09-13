@@ -3,11 +3,11 @@ from src.jobs import read
 
 def get_unique_job_types(path):
     content = read(path)
-    job_types = []
+    job_types = set()
     for index in content:
         job_type = index["job_type"]
         if job_type not in job_types:
-            job_types.append(job_type)
+            job_types.add(job_type)
 
     return job_types
 
@@ -23,12 +23,12 @@ def filter_by_job_type(jobs, job_type):
 
 def get_unique_industries(path):
     content = read(path)
-    industries_list = []
+    industries_list = set()
 
     for index in content:
         industries = index["industry"]
-        if industries not in industries_list:
-            industries_list.append(industries)
+        if industries != '':
+            industries_list.add(industries)
 
     return industries_list
 
