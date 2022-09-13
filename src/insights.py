@@ -1,3 +1,4 @@
+from ast import Num
 from src.jobs import read
 
 
@@ -43,22 +44,12 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
-
+    content = read(path)
+    max_salary = []
+    for index in content:
+        if index["max_salary"].isnumeric():
+            max_salary.append(int(index["max_salary"]))
+    return max(max_salary)
 
 def get_min_salary(path):
     """Get the minimum salary of all jobs
