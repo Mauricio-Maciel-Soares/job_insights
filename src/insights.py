@@ -17,7 +17,7 @@ def filter_by_job_type(jobs, job_type):
     for index in jobs:
         filtered_job = index["job_type"]
         if filtered_job == job_type:
-            filtered_list.append(filtered_job)
+            filtered_list.append(index)
     return filtered_list
 
 
@@ -38,7 +38,7 @@ def filter_by_industry(jobs, industry):
     for index in jobs:
         filtered_job = index["industry"]
         if filtered_job == industry:
-            filtered_list.append(filtered_job)
+            filtered_list.append(index)
     return filtered_list
 
 
