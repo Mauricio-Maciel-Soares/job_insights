@@ -1,4 +1,3 @@
-from ast import Num
 from src.jobs import read
 
 
@@ -51,22 +50,14 @@ def get_max_salary(path):
             max_salary.append(int(index["max_salary"]))
     return max(max_salary)
 
+
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+    content = read(path)
+    min_salary = []
+    for index in content:
+        if index["min_salary"].isnumeric():
+            min_salary.append(int(index["min_salary"]))
+    return min(min_salary)
 
 
 def matches_salary_range(job, salary):
