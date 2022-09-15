@@ -27,7 +27,7 @@ def get_unique_industries(path):
 
     for index in content:
         industries = index["industry"]
-        if industries != '':
+        if industries != "":
             industries_list.add(industries)
 
     return industries_list
